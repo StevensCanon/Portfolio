@@ -1,0 +1,427 @@
+/* styles/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  scroll-behavior: smooth; /* Activa el desplazamiento suave */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.img-grid {
+  max-width: 100px; /* Establece el ancho máximo */
+  max-height: 100px; /* Establece la altura máxima */
+}
+
+.img-git {
+  width: 150px; /* Establece el ancho máximo */
+  height: 150px; /* Establece la altura máxima */
+}
+
+.img-x {
+  width: 120px; /* Establece el ancho máximo */
+  height: 120px; /* Establece la altura máxima */
+}
+
+.img-container {
+  position: relative;
+}
+
+.img-container p {
+  position: absolute;
+  bottom: 0;
+  left: 90%;
+  top: 40%;
+  transform: translateX(-50%);
+}
+
+.gif-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gif-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1; /* Asegúrate de que el GIF esté debajo del efecto */
+}
+
+/* Efecto de borde difuso */
+.effect-overlay {
+  position: absolute;
+  top: -30px; /* Ajusta el desplazamiento hacia afuera */
+  left: -30px; /* Ajusta el desplazamiento hacia afuera */
+  z-index: 2; /* Asegúrate de que esté por encima del GIF */
+  pointer-events: none; /* Asegúrate de que el efecto no interfiera con los clics */
+  box-shadow: 
+    0 0 30px rgba(0, 0, 0, 0.5), /* Sombras difusas hacia afuera */
+    0 0 60px rgba(0, 0, 0, 0.4); /* Puedes ajustar el tamaño y color de la sombra aquí */
+  border-radius: inherit; /* Mantén el borde redondeado del GIF */
+  filter: blur(10px); /* Ajusta el desenfoque según tus necesidades */
+}
+.certificado {
+  width: 1200px;
+  height: 800px;
+  border-radius: inherit;
+}
+
+.footer {
+  text-decoration: none;
+  color: white;
+}
+
+.intro {
+  font-size: 120px;
+  color: transparent;
+  -webkit-text-stroke-width: 46px; /* Ancho del borde */
+  -webkit-text-stroke-color: #a322ff; /* Color del borde */
+  animation-name: fillText; /* Nombre de la animación */
+  animation-duration: 1s; /* Duración de la animación */
+  animation-delay: 2s; /* Retraso antes de que la animación comience */
+  animation-fill-mode: forwards; /* La animación retiene el valor final después de que termine */
+}
+
+@keyframes fillText {
+  from {
+    color: transparent;
+  }
+  to {
+    color: rgba(255, 255, 255, 0); /* O el color que desees al final de la animación */
+  }
+}
+
+
+
+
+.card {
+  box-sizing: border-box; /* Incluye padding y border en el ancho y alto total */
+  max-width: 100%; /* Evita desbordamientos horizontales */
+  width: 20em;
+  height: 25.5em;
+  background: #171717;
+  transition: 1s ease-in-out;
+  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card span {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: block;
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+.card .info {
+  font-weight: 400;
+  color: rgb(139, 139, 139);
+  display: block;
+  text-align: center;
+  font-size: 0.72em;
+  margin: 1em;
+  -webkit-line-clamp: 4; /* Para WebKit browsers */
+  line-clamp: 4; /* Para navegadores que soportan esta propiedad */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+
+.card .img {
+  width: 100%;
+  height: 8em;
+  background: white;
+  border-top-right-radius: 20px;
+  margin-bottom: 0.5em;
+  background-size: cover;
+  background-position: center;
+}
+
+.card .share {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.card .icon-link {
+  color: white;
+  transition: .4s ease-in-out;
+}
+
+.card .icon-link:hover {
+  color: #54007a;
+}
+
+.cssbuttons-io {
+  width: 70%;
+  padding: 0;
+  display: block;
+  margin:  auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 1.5em;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  color: ghostwhite;
+  background: linear-gradient(to right, #8a0996, #54007a);
+  overflow: hidden;
+  transition: background 0.4s ease-in-out;
+  position: relative;
+}
+
+.cssbuttons-io svg {
+  width: 1.2em;
+  height: 0.8em;
+  margin-right: 0.5em;
+}
+
+.cssbuttons-io span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  padding: 0em 1.2em 0.8em 1.2em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cssbuttons-io:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+  transform: scale(0.95);
+}
+
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-wrapper .tooltip {
+  visibility: hidden;
+  background-color: transparent;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-wrapper .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.icon-wrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.min-h-screen {
+  min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la pantalla */
+}
+
+/* Asegúrate de que el contenido pueda desplazarse verticalmente */
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.navbar {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.navItem {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #8a0996, #54007a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navItem:hover, .navItem.active {
+  transform: scale(1.2);
+}
+
+.icon {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+
+.tooltip {
+  position: absolute;
+   right: 50px ;
+  background-color: transparent;
+  color: rgb(180, 178, 178);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.navItem:hover .tooltip {
+  opacity: 1;
+}
+.logo{
+  width: 50px;
+  height: 50px;
+  cursor: none;
+  background: linear-gradient(to right, #8a0996, #54007a);
+  border-radius: 50%;
+}
+
+
+/* styles.css */
+
+/* Efecto de resplandor púrpura tipo neón para la imagen */
+.neon-card {
+  position: relative;
+  width: 200px;
+  height: 254px;
+  overflow: hidden;
+  border-radius: 0.7rem;
+}
+
+.neon-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.7rem;
+  background: rgba(128, 0, 128, 0.5); /* Color de resplandor púrpura con opacidad */
+  filter: blur(10px);
+  z-index: -1;
+  transition: opacity 0.5s;
+}
+
+.neon-card:hover::after {
+  opacity: 0;
+}
+
+.neon-card img {
+  border-radius: 0.7rem;
+  transition: transform 0.5s ease;
+}
+
+.neon-card:hover img {
+  transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.card-container {
+  transform-style: preserve-3d;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  width: 8%;
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.custom-carousel .carousel-indicators [data-bs-target] {
+  background-color: #fff;
+  width:6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
