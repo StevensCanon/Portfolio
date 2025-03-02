@@ -81,8 +81,9 @@ function Header() {
                   <Image
                     src="/images/xero-code.gif"
                     alt="Coding GIF"
-                    layout="fill"
-                    objectFit="cover"
+                    width={1000}
+                    height={1000}
+                    unoptimized={true}
                     className="w-full h-full object-cover"
                   />
                   {/* Contenedor para el efecto encima del GIF */}
