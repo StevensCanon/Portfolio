@@ -5,6 +5,7 @@ import Paragraphe1 from "./Paragraphe1";
 import IntroPage from "../../Carga";
 import { motion } from "framer-motion";
 import Particles from "./Particles";
+import Image from 'next/image';
 
 function Header() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -77,9 +78,11 @@ function Header() {
                 transition={{ duration: 0.8 }}
               >
                 <div className="gif-container w-90 h-[550px] relative">
-                  <img
+                  <Image
                     src="/images/xero-code.gif"
                     alt="Coding GIF"
+                    layout="fill"
+                    objectFit="cover"
                     className="w-full h-full object-cover"
                   />
                   {/* Contenedor para el efecto encima del GIF */}

@@ -11,7 +11,7 @@ import Body from '@/app/Components/HomeComponents/Body';
 import './globals.css';
 import IntroPage from './Carga';
 import Contact from './Components/HomeComponents/Contact';
-import Particles from "@/app/Components/HomeComponents/Particles";
+
 
 // Define fullpage options
 const fullpageOptions = {
