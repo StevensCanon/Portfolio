@@ -69,7 +69,7 @@ const TechShowcase = () => {
                 initial={{ opacity: 100, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-400 mb-20 "
+                className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400 mb-20 "
             >
                My ToolBox
             </motion.h1>

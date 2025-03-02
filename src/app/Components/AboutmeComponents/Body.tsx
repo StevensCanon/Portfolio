@@ -41,7 +41,7 @@ function Body() {
         >
           <div className="w-full h-full max-h-[90vh] bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg p-6 shadow-2xl flex flex-col justify-between">
             <div>
-              <h2 className="text-3xl font-bold text-purple-400 mb-2">WHO I AM?</h2>
+              <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400 mb-10">WHO I AM?</h2>
               <p className="text-gray-300 text-md">
                 Hello, I&apos;m Elian Stevens Cañon Suarez, a 19-year-old passionate about software development. Currently in my fourth semester at UNIVERSIDAD MINUTO DE DIOS &quot;UNIMINUTO&quot;. I&apos;m committed to honing my skills and seeking opportunities in the programming field.<br/><br/>
                 My journey includes various student projects that have enriched my experience. I&apos;m particularly drawn to Frontend development, where creativity and inspiration fuel my work. I&apos;m also delving into Backend development to bring functionality to my projects, aiming for the comprehensive skill set of a Full-stack Developer.<br/><br/>
@@ -52,7 +52,7 @@ function Body() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-4 bg-gradient-to-br from-purple-400 to-purple-600 hover:to-purple-700 hover:from-purple-500 text-white px-4 py-2 rounded-full font-semibold hover:bg-purple-700 transition-colors duration-300 text-xs md:text-sm"
+                className="mt-4 bg-purple-900 hover:bg-purple-950 text-white px-4 py-2 rounded-full  text-xs md:text-sm"
               >
                 Explore My Projects
               </motion.button>

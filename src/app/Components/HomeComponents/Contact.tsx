@@ -19,7 +19,7 @@ function Contact() {
         transition={{ duration: 0.8 }}
         className="container mx-auto px-4 text-center"
       >
-        <h1 className="text-5xl md:text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-pink-600">
+        <h1 className="text-5xl md:text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400">
           Let&apos;s Connect
         </h1>
         <p className="text-xl text-zinc-300 mb-12">
