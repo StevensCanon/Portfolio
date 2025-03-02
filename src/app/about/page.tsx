@@ -23,7 +23,7 @@ function AboutPage() {
       <Navbar />
       <ReactFullpage
         {...fullpageOptions}
-        render={({ state, fullpageApi }) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section fp-auto-height">

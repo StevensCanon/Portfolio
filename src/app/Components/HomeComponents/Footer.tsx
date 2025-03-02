@@ -18,7 +18,7 @@ const Footer = () => {
           <Grid item xs={12} md={4}>
             <h2 className="text-xl font-bold mb-4">Últimos Proyectos</h2>
             <ul className="space-y-2">
-              <li><Link href="https://google.com" className="text-zinc-400 hover:text-white transition-colors">GrandSport's</Link></li>
+              <li><Link href="https://google.com" className="text-zinc-400 hover:text-white transition-colors">GrandSport&apos;s</Link></li>
               <li><Link href="https://google.com" className="text-zinc-400 hover:text-white transition-colors">Simulator Memoria RAM</Link></li>
               <li><Link href="https://google.com" className="text-zinc-400 hover:text-white transition-colors">Register and Login</Link></li>
               <li><Link href="https://google.com" className="text-zinc-400 hover:text-white transition-colors">Sneakers</Link></li>

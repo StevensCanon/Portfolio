@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Particles from '../HomeComponents/Particles';
+import Image from 'next/image';
 
 const skills = [
   {
@@ -97,9 +98,11 @@ function Carousel() {
             className="absolute w-full h-full flex items-center justify-center"
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl">
-              <img 
-                src={skills[currentIndex].image} 
-                alt={skills[currentIndex].title} 
+              <Image
+                src={skills[currentIndex].image}
+                alt={skills[currentIndex].title}
+                layout="fill"
+                objectFit="cover"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-6">
