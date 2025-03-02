@@ -1,6 +1,6 @@
 // app/layout.tsx
 import React from 'react';
-import { Paytone_One } from '@next/font/google'; // Importa la fuente desde next/font
+import { Paytone_One } from 'next/font/google'; // Importa la fuente desde next/font
 import './globals.css'; // Importa el archivo CSS global
 
 // Configura la fuente con next/font
