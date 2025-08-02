@@ -7,7 +7,7 @@ interface TypingEffectProps {
   speed?: number;
   typingDelay?: number;
   onComplete?: () => void;
-  style?: React.CSSProperties; // Add this line for style prop
+  style?: React.CSSProperties; 
 }
 
 const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 50, typingDelay = 1500, onComplete, style }) => {
@@ -15,7 +15,7 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 50, typingDel
   const [currentPartIndex, setCurrentPartIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
 
-  // Memoize textArray to avoid unnecessary re-renders
+
   const textArray = useMemo(() => 
     Array.isArray(text) ? text : [{ content: text, highlight: false }],
     [text]
@@ -34,9 +34,9 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 50, typingDel
         }
       } else {
         if (onComplete) {
-          onComplete(); // Notify parent when typing is complete
+          onComplete(); 
         }
-        return; // Stop typing
+        return;
       }
     };
 

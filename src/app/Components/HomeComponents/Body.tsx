@@ -1,64 +1,80 @@
-import React, { useState } from 'react';
-import '../../../app/globals.css';
+"use client";
+
+import React, { useState } from "react";
+import "../../../app/globals.css";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaCode, FaPaintBrush } from 'react-icons/fa';
-import Link from 'next/link';
+import { FaCode, FaPaintBrush } from "react-icons/fa";
+import Link from "next/link";
 
 function Body() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const sectionData = {
     design: {
-      title: "Design",
-      icon: <FaPaintBrush className="text-6xl mb-4" />,
-      description: "Crafting visually stunning and intuitive user interfaces. My design philosophy revolves around user-centric principles, ensuring every pixel serves a purpose while maintaining aesthetic appeal.",
-      skills: ["UI/UX", "Responsive Design", "Figma"]
+      title: "Diseño",
+      icon: <FaPaintBrush className="text-4xl sm:text-5xl mb-4 mx-auto text-zinc-300" />,
+      description:
+        "Diseño interfaces simples, funcionales y pensadas para el usuario. Uso herramientas visuales para crear experiencias claras y coherentes.",
+      skills: ["UI/UX", "Responsive Design", "Figma", "Prototipado"],
     },
     development: {
-      title: "Development",
-      icon: <FaCode className="text-6xl mb-4" />,
-      description: "Building efficient, scalable applications with cutting-edge technologies. I produce robust solutions that are not only fast but also built to grow with your needs.",
-      skills: ["React", "Node.js", "Next.js", "TypeScript"]
-    }
+      title: "Código",
+      icon: <FaCode className="text-4xl sm:text-5xl mb-4 mx-auto text-zinc-300" />,
+      description:
+        "Desarrollo aplicaciones completas desde el frontend hasta el backend. Aplico buenas prácticas y tecnologías modernas para crear soluciones escalables.",
+      skills: ["React", "Next.js", "Node.js", "TypeScript"],
+    },
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-950 to-black min-h-screen flex flex-col items-center justify-center p-4">
-      <motion.h1 
+    <div className="dark:bg-gradient-to-b from-black to-slate-900/40 w-full min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 py-12 md:py-20 flex flex-col items-center">
+      {/* Título */}
+      <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-5xl md:text-7xl font-bold  text-transparent bg-clip-text bg-gradient-to-t from-neutral-50 to-gray-400 mb-12"
+        className="w-full text-center"
       >
-        Craft & Code
-      </motion.h1>
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-12 text-zinc-700 dark:text-zinc-100">
+          Diseño & Código
+        </h1>
+      </motion.div>
 
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
+      {/* Secciones */}
+      <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
         {Object.entries(sectionData).map(([key, data]) => (
           <motion.div
             key={key}
-            className={`flex-1 bg-purple-700 bg-opacity-20 rounded-2xl p-6 cursor-pointer backdrop-blur-sm transition-all duration-300 ${activeSection === key ? 'ring-4 ring-neutral-50' : ''}`}
-            whileHover={{ scale: 1.05 }}
+            className={`w-full sm:w-[48%] lg:w-[45%] bg-purple-800 text-white rounded-2xl p-6 sm:p-8 cursor-pointer backdrop-blur-sm transition-all duration-300 shadow-lg ${
+              activeSection === key ? "ring-4 ring-neutral-100" : ""
+            }`}
+            whileHover={{ scale: 1.03 }}
             onClick={() => setActiveSection(activeSection === key ? null : key)}
+            aria-expanded={activeSection === key}
           >
-            <div className="text-center text-white">
+            <div className="text-center">
               {data.icon}
-              <h2 className="text-3xl font-bold mb-4">{data.title}</h2>
-              <p className="text-sm opacity-80">Click to explore</p>
+              <h2 className="text-xl sm:text-2xl font-bold mb-1">
+                {data.title}
+              </h2>
+              <p className="text-sm opacity-80">Haz clic para explorar</p>
             </div>
 
             <AnimatePresence>
               {activeSection === key && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="mt-4"
+                  className="mt-4 text-sm"
                 >
-                  <p className="text-gray-300 mb-4">{data.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-zinc-200 mb-4">{data.description}</p>
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {data.skills.map((skill, index) => (
-                      <span key={index} className="bg-zinc-200 text-neutral-600 px-3 py-1 rounded-full text-sm">
+                      <span
+                        key={index}
+                        className="bg-zinc-200 text-black px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
+                      >
                         {skill}
                       </span>
                     ))}
@@ -70,15 +86,16 @@ function Body() {
         ))}
       </div>
 
+      {/* Botón */}
       <Link href="/contact" passHref>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-10 bg-gradient-to-tl from-neutral-50 to-zinc-400 text-zinc-800 font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
-              >
-                  Let&#39;s Collaborate
-              </motion.button>
-            </Link>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-12 bg-black text-white dark:bg-neutral-50 dark:text-black font-semibold py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition duration-300"
+        >
+          Contáctame
+        </motion.button>
+      </Link>
     </div>
   );
 }

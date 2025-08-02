@@ -13,13 +13,21 @@
     "@emotion/styled": "^11.13.0",
     "@fullpage/react-fullpage": "^0.1.44",
     "@mui/material": "^6.1.0",
-    "@next/font": "^14.2.11",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-toggle": "^1.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
+    "lucide-react": "^0.477.0",
     "next": "^14.2.11",
+    "next-themes": "^0.4.4",
     "react": "^18",
     "react-awesome-reveal": "^4.2.14",
     "react-dom": "^18",
-    "react-icons": "^5.3.0"
+    "react-icons": "^5.3.0",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

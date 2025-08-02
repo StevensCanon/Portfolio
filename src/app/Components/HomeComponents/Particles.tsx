@@ -1,51 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { motion } from 'framer-motion';
+"use client";
 
-function Particles() {
-  const [dimensions, setDimensions] = useState<{ width: number, height: number } | null>(null);
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Particles } from "@/components/magicui/particles";
+
+export function ParticlesDemo() {
+  const { resolvedTheme } = useTheme();
+  const [color, setColor] = useState("#a800ab");
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    function updateDimensions() {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    }
+    setIsMounted(true);
+    setColor(resolvedTheme === "dark" ? "#a800ab" : "#a800ab");
+  }, [resolvedTheme]);
 
-    updateDimensions(); // Inicializa las dimensiones
-    window.addEventListener('resize', updateDimensions);
-
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
-
-  if (!dimensions) return null; // Evita renderizar si las dimensiones no están disponibles
+  if (!isMounted) {
+    return null;
+  }
 
   return (
-    <div className="fixed inset-0 overflow-hidden z-0">
-      {[...Array(50)].map((_, index) => (
-        <motion.div
-          key={index}
-          className="absolute bg-fuchsia-900 rounded-full"
-          initial={{
-            opacity: Math.random(),
-            scale: Math.random() * 0.5 + 0.5,
-            x: Math.random() * dimensions.width,
-            y: Math.random() * dimensions.height,
-          }}
-          animate={{
-            y: [null, Math.random() * dimensions.height],
-            transition: {
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear",
-            },
-          }}
-          style={{
-            width: `${Math.random() * 4 + 5}px`,
-            height: `${Math.random() * 4 + 6}px`,
-          }}
-        />
-      ))}
+    <div className="absolute inset-0 h-screen w-full overflow-hidden">
+      <Particles
+        className="absolute inset-0"
+        quantity={150}
+        ease={50}
+        color={color}
+        refresh={false}
+        staticity={30}
+      />
     </div>
   );
 }
-
-export default Particles;

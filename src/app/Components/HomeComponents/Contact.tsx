@@ -1,43 +1,46 @@
 "use client";
+
 import React, { useState } from "react";
 import { FaLocationDot, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import "../../../app/globals.css";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Particles from "./Particles";
 
 function Contact() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="bg-gradient-to-b from-slate-950 to-black h-screen flex flex-col justify-center items-center p-4">
-      <Particles/>
+    <section className="dark:bg-gradient-to-t from-black to-slate-900/40 min-h-screen flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="container mx-auto px-4 text-center"
+        className="w-full max-w-3xl mx-auto flex flex-col items-center text-center"
       >
-        <h1 className="text-5xl md:text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400">
-          Let&apos;s Connect
+        {/* Título */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400">
+          Hablemos!
         </h1>
-        <p className="text-xl text-zinc-300 mb-12">
-          Have a question or a proposal? I&apos;d love to hear from you!
+
+        {/* Subtítulo */}
+        <p className="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 mb-10 max-w-2xl">
+          Tienes alguna pregunta o propuesta? Me encantaría escuchar de ti!
         </p>
 
+        {/* Imagen */}
         <motion.div
-          className="relative inline-block"
+          className="relative inline-block mb-10"
           whileHover={{ scale: 1.05 }}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
         >
           <Image
-            className="rounded-full shadow-lg"
+            className="rounded-full object-cover"
             src="/images/contacts12.png"
             alt="Contact"
-            width={300}
-            height={300}
+            width={260}
+            height={260}
           />
           <AnimatePresence>
             {isHovered && (
@@ -45,28 +48,33 @@ function Contact() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black bg-opacity-70 rounded-full flex items-center justify-center"
+                className="absolute inset-0 backdrop-blur-sm bg-white/55 dark:bg-black/45 rounded-full flex items-center justify-center"
               >
                 <a
                   href="mailto:elian.canon@uniminuto.edu.co"
-                  className="text-white text-xl hover:text-purple-400 transition-colors"
+                  className="text-zinc-700 dark:text-white text-lg font-medium"
                 >
-                  Send an Email
+                  Enviar un correo
                 </a>
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        {/* Info de contacto */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 mb-10 w-full max-w-xl">
           <ContactInfo
-            icon={<FaLocationDot />}
+            icon={<FaLocationDot className="text-2xl" />}
             text="Colombia, Villavicencio"
           />
-          <ContactInfo icon={<MdEmail />} text="elian.canon@uniminuto.edu.co" />
+          <ContactInfo
+            icon={<MdEmail className="text-2xl" />}
+            text="canonsuarezstevens11@gmail.com"
+          />
         </div>
 
-        <div className="mt-12 flex justify-center space-x-6">
+        {/* Redes sociales */}
+        <div className="flex flex-wrap justify-center gap-10">
           <SocialLink href="#" icon={<FaGithub />} />
           <SocialLink href="#" icon={<FaLinkedin />} />
         </div>
@@ -75,7 +83,6 @@ function Contact() {
   );
 }
 
-// Tipado de props para ContactInfo
 type ContactInfoProps = {
   icon: React.ReactNode;
   text: string;
@@ -84,8 +91,8 @@ type ContactInfoProps = {
 function ContactInfo({ icon, text }: ContactInfoProps) {
   return (
     <motion.div
-      className="flex items-center justify-center text-xl text-zinc-300"
-      whileHover={{ scale: 1.05, color: "#a855f7" }}
+      className="text-zinc-700 dark:text-white flex items-center justify-center text-base sm:text-lg"
+      whileHover={{ scale: 1.05 }}
     >
       {icon}
       <p className="ml-2">{text}</p>
@@ -93,7 +100,6 @@ function ContactInfo({ icon, text }: ContactInfoProps) {
   );
 }
 
-// Tipado de props para SocialLink
 type SocialLinkProps = {
   href: string;
   icon: React.ReactNode;
@@ -103,8 +109,8 @@ function SocialLink({ href, icon }: SocialLinkProps) {
   return (
     <motion.a
       href={href}
-      className="text-3xl text-zinc-300 hover:text-purple-500 transition-colors"
-      whileHover={{ scale: 1.2, rotate: 5 }}
+      className="text-3xl text-zinc-700 dark:text-white hover:text-purple-500 dark:hover:text-purple-500 transition-colors"
+      whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.9 }}
     >
       {icon}
