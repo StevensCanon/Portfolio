@@ -1,12 +1,11 @@
-'use client';
-import React from 'react';
-import ReactFullpage from '@fullpage/react-fullpage'; 
-import Navbar from '@/app/Components/HomeComponents/Navbar';
-import Body from '@/app/Components/AboutmeComponents/Body';
-import Footer from '@/app/Components/HomeComponents/Footer';
-import Carousel from '@/app/Components/AboutmeComponents/Carousel';
-import Certificado from '@/app/Components/AboutmeComponents/Certificado';
-import Recomendaciones from '@/app/Components/AboutmeComponents/Recomendaciones';
+"use client";
+import React from "react";
+import ReactFullpage from "@fullpage/react-fullpage";
+import Navbar from "@/app/Components/HomeComponents/Navbar";
+import Body from "@/app/Components/AboutmeComponents/Body";
+import Footer from "@/app/Components/HomeComponents/Footer";
+import Certificado from "@/app/Components/AboutmeComponents/Certificado";
+import { QualitiesMarquee } from "@/app/Components/AboutmeComponents/Qualities";
 
 import "../globals.css";
 
@@ -14,12 +13,12 @@ const fullpageOptions = {
   scrollingSpeed: 1000,
   scrollOverflow: true, // Esto permite el scroll dentro de secciones con mucho contenido
   responsiveWidth: 768, // Desactiva fullpage.js en pantallas menores a 768px
-  credits: {} // Provide an empty object or valid credits if needed
+  credits: {}, // Provide an empty object or valid credits if needed
 };
 
 function AboutPage() {
   return (
-    <div className=''>
+    <div className="">
       <Navbar />
       <ReactFullpage
         {...fullpageOptions}
@@ -29,11 +28,11 @@ function AboutPage() {
               <div className="section fp-auto-height">
                 <Body />
               </div>
-              <div className="section fp-auto-height">
-                <Carousel />
+              <div className="section fp-auto-height ">
+                <QualitiesMarquee />
               </div>
               <div className="section fp-auto-height">
-                <Recomendaciones />
+                
               </div>
               <div className="section fp-auto-height">
                 <Certificado />

@@ -1,44 +1,20 @@
-'use client';
-import React from 'react';
-import TypingEffect from '../HomeComponents/TypingEffect';
-import { Paytone_One } from 'next/font/google';
+"use client";
+import React from "react";
 
-const paytone = Paytone_One({
-  weight: ["400"],
-  style: ["normal"],
-  subsets: ["latin"],
-});
+import { WavyBackground } from "@/components/ui/wavy-background";
 
 const Header = () => {
   return (
-    <header className={`relative w-full h-[66.67vh] overflow-hidden flex items-center justify-center ${paytone.className}`}>
-      <video 
-        src='/videos/lineas.mp4' 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
-        className='absolute inset-0 w-full h-full object-cover'
-      ></video>
-
-      {/* Contenido sobre el video */}
-      <div className='relative z-10 mt-80 text-center text-white'>
-        <h2 className='text-xl'>
-          <TypingEffect
-            text={[
-              { content: "Know my ", highlight: false },
-              { content: "portfolio. ", highlight: true },
-              { content: "These are some of the ",  highlight: false},
-              { content: "projects ", highlight: true },
-              { content: "in which he participates as a student.", highlight: false }
-            ]}
-            speed={80}
-            typingDelay={0}
-          />
-        </h2>
-      </div>
-    </header>
+    <WavyBackground containerClassName="w-full" className="text-center">
+      <h1 className="text-3xl md:text-5xl font-black text-white">
+        Conoce mi <span className="">Portafolio</span>
+      </h1>
+      <p className="mt-4 text-base md:text-lg text-zinc-300">
+        Estos son algunos de los proyectos en los que he participado como
+        estudiante.
+      </p>
+    </WavyBackground>
   );
-}
+};
 
 export default Header;

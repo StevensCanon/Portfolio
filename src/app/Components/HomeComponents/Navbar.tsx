@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaHome, FaBriefcase, FaUser, FaEnvelope } from "react-icons/fa";
+import { ThemeToggle } from "./ThemeToggle";
 import "../../globals.css";
 
 const Navbar = () => {
@@ -45,6 +46,11 @@ const Navbar = () => {
           </div>
         </Link>
       ))}
+      
+      {/* Theme Toggle */}
+      <div className="mt-4">
+        <ThemeToggle />
+      </div>
     </nav>
   );
 };

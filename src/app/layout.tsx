@@ -2,6 +2,7 @@
 import React from 'react';
 import { Paytone_One } from 'next/font/google'; // Importa la fuente desde next/font
 import './globals.css'; // Importa el archivo CSS global
+import { ThemeProvider } from '@/components/themeprovider';
 
 // Configura la fuente con next/font
 const paytoneOne = Paytone_One({
@@ -20,8 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className={paytoneOne.className}>{children}</body>
+    <html lang="es" suppressHydrationWarning>
+      <body className={paytoneOne.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

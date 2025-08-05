@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import '../../../app/globals.css';
-import Particles from '../HomeComponents/Particles';
+import { Particles } from '@/components/magicui/particles';
 
 function Certificado() {
   const [isHovered, setIsHovered] = useState(false);

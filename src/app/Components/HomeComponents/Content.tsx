@@ -44,8 +44,9 @@ const Content = () => {
           <Image
             src="/images/anime.jpeg"
             alt="Programador"
-            layout="fill"
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
+            width={600}
+            height={600}
             className="bg-black/50"
           />
           <div className="absolute inset-0 opacity-70"></div>

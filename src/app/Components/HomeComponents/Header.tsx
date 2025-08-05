@@ -32,7 +32,7 @@ function Header() {
   }, [loadingComplete]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden dark:bg-gradient-to-b from-fuchsia-950/20 to-black">
+    <div className="relative min-h-screen overflow-hidden dark:bg-gradient-to-b from-fuchsia-600/20 to-black">
       <div className="absolute inset-0">
         <ParticlesDemo />
       </div>
@@ -81,11 +81,11 @@ function Header() {
                 >
                   <Link href="/contact" passHref>
                     <motion.button
-                      className="px-6 py-2 sm:px-8 sm:py-3 bg-purple-600 text-white rounded-3xl font-medium hover:bg-purple-700 transition duration-300 shadow-lg hover:shadow-xl"
+                      className="px-6 py-2 sm:px-8 sm:py-3 bg-purple-700 text-white rounded-3xl font-medium hover:bg-white hover:text-black transition duration-300 shadow-lg hover:shadow-xl"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      Empezemos
+                      Descargar CV
                     </motion.button>
                   </Link>
                   <Link href="/projects" passHref>
@@ -110,8 +110,7 @@ function Header() {
                     src="/images/xero-code.gif"
                     alt="GIF"
                     width={600}
-                    height={600}
-                    layout="responsive"
+                    height={600}               
                     className="rounded-xl object-contain"
                   />
                 </div>

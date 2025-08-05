@@ -30,7 +30,7 @@ function ProjectsPage() {
               <div className="section fp-auto-height">
                 <Header />
               </div>
-              <div className="section ">
+              <div className="section fp-auto-height">
                 <CardsProjects />
               </div>
               <div className='section fp-auto-height'>
