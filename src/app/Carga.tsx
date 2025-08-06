@@ -14,7 +14,9 @@ const IntroPage: React.FC<IntroPageProps> = ({ onLoadComplete }) => {
   const handleTypingComplete = () => {
     setTimeout(() => {
       setLoading(false);
-      if (onLoadComplete) onLoadComplete(); 
+      if (onLoadComplete) {
+        onLoadComplete();
+      }
     }, 1300); 
   };
 

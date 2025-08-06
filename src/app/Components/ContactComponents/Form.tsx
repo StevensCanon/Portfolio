@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaTwitter, FaLinkedin, FaGithub, FaPhone, FaEnvelope } from 'react-icons/fa';
-import Particles from '../HomeComponents/Particles';
+import { Particles } from '@/components/magicui/particles';
 
 // Define the type for form data
 interface FormData {

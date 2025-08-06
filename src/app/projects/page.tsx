@@ -3,22 +3,19 @@ import React from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Navbar from '@/app/Components/HomeComponents/Navbar';
 import Footer from '@/app/Components/HomeComponents/Footer';
-import '../globals.css';
-import CardsProjects from '../Components/ProjectsComponents/CardsProjects';
-import Header from '../Components/ProjectsComponents/Header';
-
+import CardsProjects from '@/app/Components/ProjectsComponents/CardsProjects';
+import Header from '@/app/Components/ProjectsComponents/Header';
 
 const fullpageOptions = {
   scrollingSpeed: 1000,
   scrollOverflow: true, 
   responsiveWidth: 768, 
   credits: { 
-   
     enabled: false
   }
 };
 
-function ProjectsPage() {
+export default function ProjectsPage() {
   return (
     <div className=''>
       <Navbar />
@@ -42,6 +39,4 @@ function ProjectsPage() {
       />
     </div>
   );
-}
-
-export default ProjectsPage;
+} 

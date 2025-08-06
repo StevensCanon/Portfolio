@@ -5,17 +5,15 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import Navbar from "@/app/Components/HomeComponents/Navbar";
 import Footer from "@/app/Components/HomeComponents/Footer";
 import Form from "@/app/Components/ContactComponents/Form";
-import "../globals.css";
 
-// Opciones para fullpage.js
 const fullpageOptions = {
   scrollingSpeed: 1000,
-  scrollOverflow: true, // Permite el scroll dentro de secciones con mucho contenido
-  responsiveWidth: 768, // Desactiva fullpage.js en pantallas menores a 768px
-  credits: {} // Proporciona un objeto vacío o créditos válidos si es necesario
+  scrollOverflow: true,
+  responsiveWidth: 768,
+  credits: {}
 };
 
-function ContactPage() {
+export default function ContactPage() {
   return (
     <ReactFullpage
       {...fullpageOptions}
@@ -36,6 +34,4 @@ function ContactPage() {
       }}
     />
   );
-}
-
-export default ContactPage;
+} 

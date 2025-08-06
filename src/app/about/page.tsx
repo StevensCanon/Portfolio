@@ -7,16 +7,14 @@ import Footer from "@/app/Components/HomeComponents/Footer";
 import Certificado from "@/app/Components/AboutmeComponents/Certificado";
 import { QualitiesMarquee } from "@/app/Components/AboutmeComponents/Qualities";
 
-import "../globals.css";
-
 const fullpageOptions = {
   scrollingSpeed: 1000,
-  scrollOverflow: true, // Esto permite el scroll dentro de secciones con mucho contenido
-  responsiveWidth: 768, // Desactiva fullpage.js en pantallas menores a 768px
-  credits: {}, // Provide an empty object or valid credits if needed
+  scrollOverflow: true,
+  responsiveWidth: 768,
+  credits: {},
 };
 
-function AboutPage() {
+export default function AboutPage() {
   return (
     <div className="">
       <Navbar />
@@ -46,6 +44,4 @@ function AboutPage() {
       />
     </div>
   );
-}
-
-export default AboutPage;
+} 

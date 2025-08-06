@@ -1,4 +1,4 @@
-"use client"; // Ensure this is at the top of the file
+"use client";
 
 import React from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
@@ -8,23 +8,17 @@ import LanguageCards from '@/app/Components/HomeComponents/Cards';
 import Footer from '@/app/Components/HomeComponents/Footer';
 import Content from './Components/HomeComponents/Content';
 import Body from '@/app/Components/HomeComponents/Body';
-import './globals.css';
-import IntroPage from './Carga';
 import Contact from './Components/HomeComponents/Contact';
+import IntroPage from './Carga';
 
-
-// Define fullpage options
 const fullpageOptions = {
   scrollingSpeed: 1000,
   scrollOverflow: true,
   responsiveWidth: 768,
-  credits: { 
-    // Provide the default settings or an empty object if you do not need credits
-    // The exact configuration can be found in the library's documentation
-  },
+  credits: {},
 };
 
-function Home() {
+export default function HomePage() {
   return (
     <div className=''>      
       <IntroPage />
@@ -59,5 +53,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

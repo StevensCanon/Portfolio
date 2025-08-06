@@ -15,7 +15,7 @@ export const WavyBackground = ({
   waveOpacity = 0.5,
   ...props
 }: {
-  children?: any;
+  children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   colors?: string[];
@@ -24,13 +24,13 @@ export const WavyBackground = ({
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }) => {
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null); 
   const [isSafari, setIsSafari] = useState(false);
-  let ctx: any, animationId: number;
+  let ctx: CanvasRenderingContext2D | null, animationId: number;
 
   const getSpeed = () => {
     switch (speed) {
@@ -49,6 +49,9 @@ export const WavyBackground = ({
   ];
 
   const drawWave = (n: number, w: number, h: number, nt: number) => {
+    if (!ctx) {
+      return;
+    }
     for (let i = 0; i < n; i++) {
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
@@ -63,7 +66,9 @@ export const WavyBackground = ({
   };
 
   const render = (nt: number, w: number, h: number) => {
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
@@ -73,11 +78,16 @@ export const WavyBackground = ({
   const startAnimation = () => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
-    if (!canvas || !container) return;
+    if (!canvas || !container) {
+      return;
+    }
 
     ctx = canvas.getContext("2d");
 
     const resizeCanvas = () => {
+      if (!canvas || !container || !ctx) {
+        return;
+      }
       const w = canvas.width = container.offsetWidth;
       const h = canvas.height = container.offsetHeight;
       ctx.filter = `blur(${blur}px)`;
@@ -105,7 +115,7 @@ export const WavyBackground = ({
   useEffect(() => {
     const cleanup = startAnimation();
     return cleanup;
-  }, []);
+  }, [blur, waveOpacity, backgroundFill, waveWidth, colors, speed]);
 
   useEffect(() => {
     setIsSafari(
