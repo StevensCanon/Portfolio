@@ -59,7 +59,7 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 50, typingDel
       {textArray.map((part, index) => (
         <span 
           key={index} 
-          className={part.highlight ? 'text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400' : ''}
+          className={part.highlight ? 'text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400' : ''}
         >
           {displayedText.slice(
             textArray.slice(0, index).reduce((acc, curr) => acc + curr.content.length, 0),

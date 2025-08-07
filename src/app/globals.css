@@ -20,7 +20,7 @@
 }
 
 body {
-  scroll-behavior: smooth; /* Activa el desplazamiento suave */
+   /* Activa el desplazamiento suave */
 }
 
 @layer utilities {

@@ -11,7 +11,8 @@ function Contact() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="dark:bg-gradient-to-t from-black to-slate-900/40 min-h-screen flex items-center justify-center px-4">
+    <section className="bg-gradient-to-b from-purple-900/50 via-white to-white 
+  dark:from-fuchsia-600/20 dark:via-black dark:to-black dark:bg-gradient-to-b min-h-screen flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,7 +49,7 @@ function Contact() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 backdrop-blur-sm bg-white/55 dark:bg-black/45 rounded-full flex items-center justify-center"
+                className="absolute inset-0 backdrop-blur-sm  rounded-full flex items-center justify-center"
               >
                 <a
                   href="mailto:elian.canon@uniminuto.edu.co"

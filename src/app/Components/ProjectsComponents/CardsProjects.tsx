@@ -25,7 +25,7 @@ function getTooltip(Icon: IconType): string {
 export default function CardsProjects() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   return (
-    <section className="min-h-screen w-full bg-black py-16">
+    <section className="min-h-screen w-full bg-white dark:bg-black py-14">
       <Fade duration={800}>
         <div className="max-w-7xl mx-auto px-6">
           

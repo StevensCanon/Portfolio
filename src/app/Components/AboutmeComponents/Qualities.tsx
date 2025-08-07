@@ -32,12 +32,15 @@ const qualities: Quality[] = [
 
 export const QualitiesMarquee: React.FC = () => {
   return (
-    <div className="bg-gradient-to-b from-purple-950/20 via-black to-black">
-      <h1 className="text-4xl font-bold text-center text-white py-10">
+    <div className="bg-gradient-to-b from-purple-900/50 via-white to-white dark:from-fuchsia-600/20 dark:via-black dark:to-black dark:bg-gradient-to-b">
+      <section className="">
+        <TimelineDemo />
+      </section>
+      <h1 className="text-4xl font-bold text-center text-black dark:text-white py-10">
         Mis cualidades
       </h1>
 
-      <div className="relative overflow-hidden py-6">
+      <div className="relative overflow-hidden py-10">
         <motion.div
           className="flex space-x-12 whitespace-nowrap"
           animate={{ x: ['0%', '-50%'] }}
@@ -48,18 +51,14 @@ export const QualitiesMarquee: React.FC = () => {
             return (
               <div
                 key={`${quality.text}-${index}`}
-                className="flex items-center space-x-2 text-purple-200"
+                className="flex items-center space-x-2 text-zinc-600 dark:text-purple-300"
               >
-                <Icon className="w-4 h-4 text-purple-400" />
+                <Icon className="w-4 h-4 text-zinc-600 dark:text-purple-300" />
                 <span className="text-sm font-medium">{quality.text}</span>
               </div>
             );
           })}
         </motion.div>
-
-        <section className="pb-20">
-          <TimelineDemo />
-        </section>
       </div>
     </div>
   );

@@ -30,9 +30,6 @@ export default function AboutPage() {
                 <QualitiesMarquee />
               </div>
               <div className="section fp-auto-height">
-                
-              </div>
-              <div className="section fp-auto-height">
                 <Certificado />
               </div>
               <div className="section fp-auto-height">

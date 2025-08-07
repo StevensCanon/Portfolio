@@ -36,11 +36,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full text-light md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto pt-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl ">
+      <div className="max-w-7xl mx-auto pt-20 px-4 md:px-8 lg:px-10 flex flex-col items-center justify-center">
+        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white">
           Mi experiencia laboral
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
+        <p className="text-neutral-700 dark:text-neutral-500 text-sm md:text-base  ">
           Estos son algunos de los proyectos en los que he trabajado.
         </p>
       </div>

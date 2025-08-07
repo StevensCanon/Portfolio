@@ -1,57 +1,46 @@
-"use client";
-import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
-import { createNoise3D } from "simplex-noise";
+'use client';
+import { cn } from '@/lib/utils';
+import React, { useEffect, useRef } from 'react';
+import { createNoise3D } from 'simplex-noise';
+import { useTheme } from 'next-themes';
 
 export const WavyBackground = ({
   children,
   className,
   containerClassName,
-  colors,
   waveWidth,
-  backgroundFill,
   blur = 10,
-  speed = "fast",
+  speed = 'fast',
   waveOpacity = 0.5,
   ...props
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
-  colors?: string[];
   waveWidth?: number;
-  backgroundFill?: string;
   blur?: number;
-  speed?: "slow" | "fast";
+  speed?: 'slow' | 'fast';
   waveOpacity?: number;
   [key: string]: unknown;
 }) => {
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null); 
-  const [isSafari, setIsSafari] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { theme, resolvedTheme } = useTheme(); // 👈 detecta el tema actual
+  const isDark = theme === 'dark' || resolvedTheme === 'dark';
+
   let ctx: CanvasRenderingContext2D | null, animationId: number;
 
-  const getSpeed = () => {
-    switch (speed) {
-      case "slow":
-        return 0.001;
-      case "fast":
-        return 0.002;
-      default:
-        return 0.001;
-    }
-  };
+  const getSpeed = () => (speed === 'fast' ? 0.002 : 0.001);
 
-  const waveColors = colors ?? [
-    "#430545", "#CE81F8", "#c084fc", "#E8E8E8", "#9622EE",
-    "#430545", "#CE81F8", "#c084fc", "#E8E8E8", "#9622EE",
-  ];
+  const darkModeColors = ['#430545', '#CE81F8', '#c084fc', '#E8E8E8', '#9622EE'];
+  const lightModeColors = ['#B07CFF', '#925BFF', '#A78BFA', '#EDE9FE', '#CABFFD'];
+
+  const waveColors = isDark ? darkModeColors : lightModeColors;
+  const backgroundFill = isDark ? '#000000' : '#ffffff';
 
   const drawWave = (n: number, w: number, h: number, nt: number) => {
-    if (!ctx) {
-      return;
-    }
+    if (!ctx) return;
     for (let i = 0; i < n; i++) {
       ctx.beginPath();
       ctx.lineWidth = waveWidth || 50;
@@ -66,11 +55,9 @@ export const WavyBackground = ({
   };
 
   const render = (nt: number, w: number, h: number) => {
-    if (!ctx) {
-      return;
-    }
-    ctx.fillStyle = backgroundFill || "black";
-    ctx.globalAlpha = waveOpacity || 0.5;
+    if (!ctx) return;
+    ctx.fillStyle = backgroundFill;
+    ctx.globalAlpha = waveOpacity;
     ctx.fillRect(0, 0, w, h);
     drawWave(5, w, h, nt);
   };
@@ -78,18 +65,14 @@ export const WavyBackground = ({
   const startAnimation = () => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
-    if (!canvas || !container) {
-      return;
-    }
+    if (!canvas || !container) return;
 
-    ctx = canvas.getContext("2d");
+    ctx = canvas.getContext('2d');
 
     const resizeCanvas = () => {
-      if (!canvas || !container || !ctx) {
-        return;
-      }
-      const w = canvas.width = container.offsetWidth;
-      const h = canvas.height = container.offsetHeight;
+      if (!canvas || !container || !ctx) return;
+      const w = (canvas.width = container.offsetWidth);
+      const h = (canvas.height = container.offsetHeight);
       ctx.filter = `blur(${blur}px)`;
 
       let nt = 0;
@@ -104,10 +87,10 @@ export const WavyBackground = ({
     };
 
     resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationId);
     };
   };
@@ -115,21 +98,13 @@ export const WavyBackground = ({
   useEffect(() => {
     const cleanup = startAnimation();
     return cleanup;
-  }, [blur, waveOpacity, backgroundFill, waveWidth, colors, speed]);
-
-  useEffect(() => {
-    setIsSafari(
-      typeof window !== "undefined" &&
-      navigator.userAgent.includes("Safari") &&
-      !navigator.userAgent.includes("Chrome")
-    );
-  }, []);
+  }, [blur, waveOpacity, waveWidth, speed, isDark]); // 👈 vuelve a renderizar si cambia el tema
 
   return (
     <div
-      ref={containerRef} 
+      ref={containerRef}
       className={cn(
-        "relative w-full py-16 flex flex-col items-center justify-center",
+        'w-full mx-auto px-4 h-60 flex flex-col items-center justify-center overflow-x-hidden relative',
         containerClassName
       )}
     >
@@ -137,11 +112,8 @@ export const WavyBackground = ({
         className="absolute inset-0 z-0"
         ref={canvasRef}
         id="canvas"
-        style={{
-          ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
-        }}
       />
-      <div className={cn("relative z-10", className)} {...props}>
+      <div className={cn('relative z-10', className)} {...props}>
         {children}
       </div>
     </div>

@@ -12,14 +12,14 @@ function Body() {
   const sectionData = {
     design: {
       title: "Diseño",
-      icon: <FaPaintBrush className="text-4xl sm:text-5xl mb-4 mx-auto text-zinc-300" />,
+      icon: <FaPaintBrush className="text-4xl sm:text-5xl mb-4 mx-auto text-neutral-900 dark:text-zinc-300" />,
       description:
         "Diseño interfaces simples, funcionales y pensadas para el usuario. Uso herramientas visuales para crear experiencias claras y coherentes.",
       skills: ["UI/UX", "Responsive Design", "Figma", "Prototipado"],
     },
     development: {
       title: "Código",
-      icon: <FaCode className="text-4xl sm:text-5xl mb-4 mx-auto text-zinc-300" />,
+      icon: <FaCode className="text-4xl sm:text-5xl mb-4 mx-auto text-neutral-900 dark:text-zinc-300" />,
       description:
         "Desarrollo aplicaciones completas desde el frontend hasta el backend. Aplico buenas prácticas y tecnologías modernas para crear soluciones escalables.",
       skills: ["React", "Next.js", "Node.js", "TypeScript"],
@@ -27,14 +27,15 @@ function Body() {
   };
 
   return (
-    <div className="dark:bg-gradient-to-b from-black to-slate-900/40 w-full min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 py-12 md:py-20 flex flex-col items-center">
+    <div className="bg-gradient-to-b from-purple-900/50 via-white to-white 
+  dark:from-fuchsia-600/20 dark:via-black dark:to-black dark:bg-gradient-to-b w-full min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 py-12 md:py-20 flex flex-col items-center">
       {/* Título */}
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full text-center"
       >
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-12 text-zinc-700 dark:text-zinc-100">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl dark:text-white dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400  md:text-7xl font-bold mb-20">
           Diseño & Código
         </h1>
       </motion.div>
@@ -44,7 +45,7 @@ function Body() {
         {Object.entries(sectionData).map(([key, data]) => (
           <motion.div
             key={key}
-            className={`w-full sm:w-[48%] lg:w-[45%] bg-purple-800 text-white rounded-2xl p-6 sm:p-8 cursor-pointer backdrop-blur-sm transition-all duration-300 shadow-lg ${
+            className={`w-full sm:w-[48%] lg:w-[45%] dark:bg-purple-950 dark:bg-opacity-20 bg-purple-950 bg-opacity-50 text-black dark:text-white rounded-2xl p-6 sm:p-8 cursor-pointer backdrop-blur-sm transition-all duration-300 shadow-lg ${
               activeSection === key ? "ring-4 ring-neutral-100" : ""
             }`}
             whileHover={{ scale: 1.03 }}
@@ -68,7 +69,7 @@ function Body() {
                   transition={{ duration: 0.3 }}
                   className="mt-4 text-sm"
                 >
-                  <p className="text-zinc-200 mb-4">{data.description}</p>
+                  <p className="text-zinc-700 dark:text-zinc-400 mb-4">{data.description}</p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {data.skills.map((skill, index) => (
                       <span
@@ -91,7 +92,7 @@ function Body() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-12 bg-black text-white dark:bg-neutral-50 dark:text-black font-semibold py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition duration-300"
+          className="mt-12 bg-black text-white dark:bg-white dark:text-black font-semibold py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition duration-300"
         >
           Contáctame
         </motion.button>

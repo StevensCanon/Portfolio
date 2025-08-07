@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import '../../../app/globals.css';
 
 type Certificate = {
   id: number;
@@ -56,7 +55,7 @@ function Certificado() {
 
   return (
     <>
-      <section className="relative w-full min-h-screen bg-gradient-to-b from-black via-black to-purple-950/20 py-10 px-4">
+      <section className="relative w-full min-h-screen bg-gradient-to-t from-purple-900/50 via-white to-white dark:from-fuchsia-600/20 dark:via-black dark:to-black dark:bg-gradient-to-t py-10 px-4">
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Header */}
           <motion.div
@@ -65,10 +64,10 @@ function Certificado() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white bg-clip-text mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400 mb-4">
               Certificaciones
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">
               Validación continua de conocimientos en tecnologías modernas
             </p>
           </motion.div>
@@ -89,7 +88,7 @@ function Certificado() {
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all duration-300 h-full flex flex-col">
+                <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all duration-300 h-full flex flex-col">
                   {/* Imagen del certificado */}
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -112,7 +111,7 @@ function Certificado() {
                   {/* Info */}
                   <div className="p-4 flex flex-col justify-between flex-grow">
                     <h3 className="text-lg text-white mb-2 line-clamp-2">{cert.title}</h3>
-                    <div className="flex justify-between items-center text-sm text-gray-400 mt-auto">
+                    <div className="flex justify-between items-center text-sm text-zinc-400 mt-auto">
                       <span>{cert.issuer}</span>
                       <span>{cert.date}</span>
                     </div>
@@ -130,20 +129,20 @@ function Certificado() {
             className="mt-16 flex flex-wrap justify-center items-center gap-8 text-center"
           >
             <div>
-              <div className="text-2xl font-bold text-neutral-400">{certificates.length}</div>
-              <div className="text-gray-400 text-sm">Certificados</div>
+              <div className="text-2xl font-bold dark:text-zinc-300 text-zinc-800">{certificates.length}</div>
+              <div className="text-zinc-700 dark:text-zinc-400 text-sm">Certificados</div>
             </div>
-            <div className="w-px h-12 bg-gray-700" />
+            <div className="w-px h-12 bg-zinc-700" />
             <div>
-              <div className="text-2xl font-bold text-neutral-400">
+              <div className="text-2xl font-bold dark:text-zinc-300 text-zinc-800">
                 {new Set(certificates.map((cert) => cert.category)).size}
               </div>
-              <div className="text-gray-400 text-sm">Categorías</div>
+              <div className="text-zinc-700 dark:text-zinc-400 text-sm">Categorías</div>
             </div>
-            <div className="w-px h-12 bg-gray-700" />
+            <div className="w-px h-12 bg-zinc-700" />
             <div>
-              <div className="text-2xl font-bold text-neutral-300">2023–2025</div>
-              <div className="text-gray-400 text-sm">Período</div>
+              <div className="text-2xl font-bold text-black dark:text-white">2023–2025</div>
+              <div className="text-zinc-700 dark:text-zinc-400 text-sm">Período</div>
             </div>
           </motion.div>
         </div>
@@ -163,13 +162,13 @@ function Certificado() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="relative bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-auto"
+              className="relative bg-zinc-900 border border-zinc-700 rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Botón cerrar */}
               <button
                 onClick={() => setSelectedCertificate(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors"
                 aria-label="Cerrar"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -192,7 +191,7 @@ function Certificado() {
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">{selectedCertificate.title}</h3>
-                    <div className="flex flex-wrap items-center gap-4 text-gray-400">
+                    <div className="flex flex-wrap items-center gap-4 text-zinc-400">
                       <span>{selectedCertificate.issuer}</span>
                       <span>•</span>
                       <span>{selectedCertificate.date}</span>
@@ -202,7 +201,7 @@ function Certificado() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-gray-700">
+                  <div className="pt-4 border-t border-zinc-700">
                     <button className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
                       Ver Certificado Completo
                     </button>

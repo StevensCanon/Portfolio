@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import "../../globals.css";
-import Paragraphe2 from "./Paragraphe2";
-import Paragraphe1 from "./Paragraphe1";
-import IntroPage from "../../Carga";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { ParticlesDemo } from "./Particles";
-import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import Link from "next/link";
+import React, { useState, useEffect } from 'react';
+import '../../globals.css';
+import Paragraphe2 from './Paragraphe2';
+import Paragraphe1 from './Paragraphe1';
+import IntroPage from '../../Carga';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ParticlesDemo } from './Particles';
+import { ShimmerButton } from '@/components/magicui/shimmer-button';
+import Link from 'next/link';
 
 function Header() {
   const [loadingComplete, setLoadingComplete] = useState(false);
@@ -32,7 +32,11 @@ function Header() {
   }, [loadingComplete]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden dark:bg-gradient-to-b from-fuchsia-600/20 to-black">
+    <div
+      className="relative min-h-screen overflow-hidden 
+  bg-gradient-to-b from-purple-900/50 to-white 
+  dark:from-fuchsia-600/20 dark:to-black dark:bg-gradient-to-b"
+    >
       <div className="absolute inset-0">
         <ParticlesDemo />
       </div>
@@ -81,7 +85,15 @@ function Header() {
                 >
                   <Link href="/contact" passHref>
                     <motion.button
-                      className="px-6 py-2 sm:px-8 sm:py-3 bg-purple-700 text-white rounded-3xl font-medium hover:bg-white hover:text-black transition duration-300 shadow-lg hover:shadow-xl"
+                      className="px-6 py-2 sm:px-8 sm:py-3 
+                      bg-gradient-to-t from-purple-900 via-purple-900 to-fuchsia-900 
+                      dark:from-purple-700 dark:via-purple-700 dark:to-fuchsia-400 
+                      text-white rounded-3xl font-medium 
+                      hover:bg-gradient-to-t hover:from-neutral-400 hover:via-neutral-400 hover:to-neutral-400 
+                      hover:text-black 
+                      dark:hover:from-white dark:hover:via-white dark:hover:to-white dark:hover:text-black 
+                      transition duration-300"
+                    
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -110,7 +122,7 @@ function Header() {
                     src="/images/xero-code.gif"
                     alt="GIF"
                     width={600}
-                    height={600}               
+                    height={600}
                     className="rounded-xl object-contain"
                   />
                 </div>
