@@ -26,10 +26,10 @@ export const WavyBackground = ({
   const noise = createNoise3D();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const animationIdRef = useRef<number | null>(null);
   const { theme, resolvedTheme } = useTheme(); // 👈 detecta el tema actual
   const isDark = theme === 'dark' || resolvedTheme === 'dark';
-
-  let ctx: CanvasRenderingContext2D | null, animationId: number;
 
   const getSpeed = () => (speed === 'fast' ? 0.002 : 0.001);
 
@@ -46,51 +46,53 @@ export const WavyBackground = ({
       return;
     }
 
-    ctx = canvas.getContext('2d');
+    ctxRef.current = canvas.getContext('2d');
 
     const drawWave = (n: number, w: number, h: number, nt: number) => {
-      if (!ctx) {
+      if (!ctxRef.current) {
         return;
       }
       for (let i = 0; i < n; i++) {
-        ctx.beginPath();
-        ctx.lineWidth = waveWidth || 50;
-        ctx.strokeStyle = waveColors[i % waveColors.length];
+        ctxRef.current.beginPath();
+        ctxRef.current.lineWidth = waveWidth || 50;
+        ctxRef.current.strokeStyle = waveColors[i % waveColors.length];
         for (let x = 0; x < w; x += 5) {
           const y = noise(x / 800, 0.3 * i, nt) * 100;
-          ctx.lineTo(x, y + h * 0.5);
+          ctxRef.current.lineTo(x, y + h * 0.5);
         }
-        ctx.stroke();
-        ctx.closePath();
+        ctxRef.current.stroke();
+        ctxRef.current.closePath();
       }
     };
 
     const render = (nt: number, w: number, h: number) => {
-      if (!ctx) {
+      if (!ctxRef.current) {
         return;
       }
-      ctx.fillStyle = backgroundFill;
-      ctx.globalAlpha = waveOpacity;
-      ctx.fillRect(0, 0, w, h);
+      ctxRef.current.fillStyle = backgroundFill;
+      ctxRef.current.globalAlpha = waveOpacity;
+      ctxRef.current.fillRect(0, 0, w, h);
       drawWave(5, w, h, nt);
     };
 
     const resizeCanvas = () => {
-      if (!canvas || !container || !ctx) {
+      if (!canvas || !container || !ctxRef.current) {
         return;
       }
       const w = (canvas.width = container.offsetWidth);
       const h = (canvas.height = container.offsetHeight);
-      ctx.filter = `blur(${blur}px)`;
+      ctxRef.current.filter = `blur(${blur}px)`;
 
       let nt = 0;
       const animate = () => {
         nt += getSpeed();
         render(nt, w, h);
-        animationId = requestAnimationFrame(animate);
+        animationIdRef.current = requestAnimationFrame(animate);
       };
 
-      cancelAnimationFrame(animationId);
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
       animate();
     };
 
@@ -99,7 +101,9 @@ export const WavyBackground = ({
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationId);
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
     };
   }, [blur, waveOpacity, waveWidth, speed, isDark, waveColors, backgroundFill]);
 
