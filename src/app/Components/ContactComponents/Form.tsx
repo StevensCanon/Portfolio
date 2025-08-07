@@ -34,7 +34,7 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Formulario enviado:', formData);
+    // Formulario enviado
   };
 
   const socialLinks = [
