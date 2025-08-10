@@ -117,13 +117,15 @@ function Header() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl h-auto">
+                <div className="relative w-full max-w-md sm:max-w-lg md:max-w-3xl h-auto ">
                   <Image
-                    src="/images/xero-code.gif"
+                    src="\images\gif.gif"
                     alt="GIF"
-                    width={600}
-                    height={600}
+                    width={0}
+                    height={0}
                     className="rounded-xl object-contain"
+                    style={{ width: '2000px', height: 'auto' }} // optional
+                    unoptimized
                   />
                 </div>
               </motion.div>
