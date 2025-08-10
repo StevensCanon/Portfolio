@@ -119,7 +119,7 @@ function Header() {
               >
                 <div className="relative w-full max-w-md sm:max-w-lg md:max-w-3xl h-auto ">
                   <Image
-                    src="\images\gif.gif"
+                    src="/images/imagen2.png"
                     alt="GIF"
                     width={0}
                     height={0}
