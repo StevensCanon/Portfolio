@@ -105,7 +105,7 @@ export const WavyBackground = ({
         cancelAnimationFrame(animationIdRef.current);
       }
     };
-  }, [blur, waveOpacity, waveWidth, speed, isDark, waveColors, backgroundFill]);
+  }, [blur, waveOpacity, waveWidth, speed, isDark, waveColors, backgroundFill, getSpeed, noise]);
 
   useEffect(() => {
     const cleanup = startAnimation();
