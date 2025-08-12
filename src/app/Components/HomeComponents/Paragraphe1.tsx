@@ -28,7 +28,7 @@ export function Paragraphe1({ startDelay, onComplete }: Paragraphe1Props) {
       {showParagraph && (
         <TypingEffect
           text={text}
-          speed={80}
+          speed={50}
           typingDelay={0}
           onComplete={onComplete}
           style={{  }}

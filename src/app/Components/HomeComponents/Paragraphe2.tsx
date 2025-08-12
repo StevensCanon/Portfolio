@@ -29,7 +29,7 @@ export function Paragraphe2({ startDelay, onComplete }: Paragraphe2Props) {
         <TypingEffect
           text={text}
           speed={30}
-          typingDelay={0}
+          typingDelay={5}
           onComplete={onComplete}
         />
       )}
