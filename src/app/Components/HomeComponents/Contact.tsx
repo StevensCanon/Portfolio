@@ -20,7 +20,7 @@ function Contact() {
         className="w-full max-w-3xl mx-auto flex flex-col items-center text-center"
       >
         {/* Título */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-700 to-fuchsia-400">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl mb-8 font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400">
           Hablemos!
         </h1>
 
@@ -110,7 +110,7 @@ function SocialLink({ href, icon }: SocialLinkProps) {
   return (
     <motion.a
       href={href}
-      className="text-3xl text-zinc-700 dark:text-white hover:text-purple-500 dark:hover:text-purple-500 transition-colors"
+      className="text-3xl text-zinc-700 dark:text-white hover:text-purple-700 dark:hover:text-purple-700 transition-colors"
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.9 }}
     >

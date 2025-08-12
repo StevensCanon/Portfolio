@@ -36,7 +36,7 @@ function Body() {
         className="w-full text-center"
       >
         <h1 className="text-3xl sm:text-5xl lg:text-6xl dark:text-white dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400  md:text-7xl font-bold mb-20">
-          Diseño & Código
+          Diseño <span className="text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400"> & </span> Código
         </h1>
       </motion.div>
 

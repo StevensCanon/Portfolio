@@ -45,12 +45,11 @@ const Content = () => {
           className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh] rounded-xl overflow-hidden "
         >
           <Image
-            src="/images/anime.jpeg"
+            src="/images/fullstack.png"
             alt="Programador"
-            style={{ objectFit: 'cover' }}
             width={600}
             height={600}
-            className=" bg-black/50 "
+            className=" bg-black/50 h-full object-fill"
           />
           <div className="absolute inset-0 opacity-70"></div>
           <motion.h1
@@ -114,10 +113,8 @@ const Content = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-8 px-6 py-3 rounded-full font-semibold transition-colors duration-300
-              bg-white hover:bg-zinc-400
-              dark:bg-gradient-to-t dark:from-purple-700 dark:via-purple-700 dark:to-fuchsia-900
-              dark:hover:from-purple-800 dark:hover:via-purple-800 dark:hover:to-fuchsia-950"
+              className="mt-8 px-6 py-3 rounded-full transition-colors duration-300
+              bg-white hover:bg-zinc-400 text-black dark:bg-purple-700 dark:text-white dark:hover:bg-white hover:text-black dark:hover:text-black"
             >
               Ver mis proyectos
             </motion.button>

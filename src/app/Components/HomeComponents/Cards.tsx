@@ -60,7 +60,7 @@ export default function SkillsSection() {
   return (
     <section className="bg-gradient-to-t from-purple-900/50 via-white to-white dark:from-fuchsia-600/20 dark:via-black dark:to-black dark:bg-gradient-to-t min-h-screen flex flex-col justify-center items-center px-4 py-20">
       <div className="max-w-6xl mx-auto text-center">
-        <p className="uppercase text-sm text-gray-400 mb-2 tracking-widest">
+        <p className="uppercase text-sm text-gray-600 dark:text-gray-400 mb-2 tracking-widest">
           PARA DESARROLLAR
         </p>
         <h2 className="text-4xl md:text-5xl font-bold mb-12">
