@@ -487,3 +487,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.fp-watermark {
+  display: none !important;
+}
