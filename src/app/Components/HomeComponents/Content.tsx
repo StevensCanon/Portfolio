@@ -45,7 +45,7 @@ const Content = () => {
           className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[80vh] rounded-xl overflow-hidden "
         >
           <Image
-            src="/images/fullstack.png"
+            src="/images/full.png"
             alt="Programador"
             width={600}
             height={600}
