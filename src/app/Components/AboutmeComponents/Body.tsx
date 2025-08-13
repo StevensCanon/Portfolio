@@ -23,7 +23,10 @@ function Body() {
                 Más sobre mí
               </p>
               <h1 className="text-3xl md:text-5xl font-bold text-black dark:text-white pb-6">
-                Yo soy <span className="text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400">Stevens Cañon</span>
+                Yo soy{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400">
+                  Stevens Cañon
+                </span>
               </h1>
               <p className="text-neutral-600 dark:text-zinc-400 text-md leading-relaxed">
                 Soy un desarrollador junior full-stack con experiencia en la
@@ -44,13 +47,10 @@ function Body() {
             </div>
 
             <div className="mt-6">
-              <InteractiveHoverButton className=" bg-gradient-to-t from-purple-900 via-purple-900 to-fuchsia-900 
-                      dark:from-purple-700 dark:via-purple-700 dark:to-fuchsia-400 
-                      text-white rounded-3xl font-medium 
-                      hover:bg-gradient-to-t hover:from-neutral-400 hover:via-neutral-400 hover:to-neutral-400 
-                      hover:text-black 
-                      dark:hover:from-white dark:hover:via-white dark:hover:to-white dark:hover:text-black 
-                      transition duration-300">
+              <InteractiveHoverButton
+                className=" bg-white hover:bg-zinc-400 text-black dark:bg-purple-700 dark:text-white dark:hover:bg-white hover:text-black dark:hover:text-black
+                      transition duration-300"
+              >
                 <Link href="/projects" passHref>
                   Explora mis proyectos
                 </Link>
@@ -69,7 +69,7 @@ function Body() {
             <div className="absolute inset-0 bg-purple-500 rounded-xl rotate-3 z-0"></div>
             <div className="absolute inset-0 overflow-hidden rounded-xl shadow-xl z-10">
               <Image
-                src="/images/foto.png"
+                src="/images/yo.png"
                 alt="Stevens Cañon"
                 fill
                 className="object-cover rounded-xl transition-transform duration-500 ease-in-out hover:scale-110"

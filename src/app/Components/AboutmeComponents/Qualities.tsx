@@ -36,9 +36,12 @@ export const QualitiesMarquee: React.FC = () => {
       <section className="">
         <TimelineDemo />
       </section>
-      <h1 className="text-4xl font-bold text-center text-black dark:text-white py-10">
-        Mis cualidades
-      </h1>
+      <h2 className="text-4xl md:text-5xl text-center font-bold mb-12">
+          Mis{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400 ">
+            Cualidades
+          </span>
+        </h2>
 
       <div className="relative overflow-hidden py-10">
         <motion.div

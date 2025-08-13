@@ -60,7 +60,7 @@ function Certificado() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-purple-900 to-fuchsia-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-t dark:from-purple-700 dark:to-fuchsia-400 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white">
             Certificaciones
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">
@@ -105,8 +105,8 @@ function Certificado() {
 
                 {/* Info */}
                 <div className="p-4 flex flex-col justify-between flex-grow">
-                  <h3 className="text-lg text-white mb-2 line-clamp-2">{cert.title}</h3>
-                  <div className="flex justify-between items-center text-sm text-zinc-400 mt-auto">
+                  <h3 className="text-lg text-black dark:text-white mb-2 line-clamp-2">{cert.title}</h3>
+                  <div className="flex justify-between items-center text-sm text-zinc-800 dark:text-zinc-400 mt-auto">
                     <span>{cert.issuer}</span>
                     <span>{cert.date}</span>
                   </div>

@@ -92,7 +92,7 @@ function Body() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-12 bg-black text-white dark:bg-white dark:text-black font-semibold py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition duration-300"
+          className="mt-12 bg-black text-white dark:bg-white dark:text-black hover:bg-zinc-600 dark:hover:bg-purple-700 dark:hover:text-white font-semibold py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition duration-300"
         >
           Contáctame
         </motion.button>
